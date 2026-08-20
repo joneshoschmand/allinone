@@ -1,0 +1,27 @@
+/* Zusatz-Styles für Impressum & Datenschutz */
+
+.legal{ padding:clamp(56px,7vw,96px) 0; background:var(--paper); }
+.legal__in{ max-width:820px; }
+
+.legal h1{
+  font-size:clamp(2.2rem,5vw,3.2rem); font-weight:800; margin:0 0 36px;
+}
+.legal h2{
+  font-size:clamp(1.15rem,2.2vw,1.5rem); font-weight:700;
+  margin:38px 0 12px; padding-top:26px; border-top:1px solid var(--line);
+}
+.legal h3{ font-size:1.05rem; font-weight:700; margin:24px 0 8px; }
+.legal p, .legal li{ color:var(--ink-600); font-size:16.5px; }
+.legal ul{ padding-left:20px; margin:0 0 1em; }
+.legal li{ margin-bottom:6px; }
+.legal a{ color:var(--green-dark); font-weight:600; }
+
+.legal__hint{
+  background:var(--green-tint); border:1px solid rgba(139,198,68,.4);
+  border-radius:var(--r); padding:18px 22px; font-size:15px; margin-top:34px;
+}
+.legal__hint strong{ color:var(--ink); }
+
+.legal__back{ margin-top:44px; }
+
+.legal .ftr__bottom a{ color:rgba(255,255,255,.62); text-decoration:none; font-weight:400; }
