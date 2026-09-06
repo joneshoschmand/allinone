@@ -163,14 +163,23 @@
   window.addEventListener('resize', onScroll, { passive: true });
   frame();
 
-  // Zwei Frames warten, damit der Startzustand einmal gerendert wurde – sonst
-  // springt der sichtbare Bereich ohne Uebergang auf den Endzustand.
-  requestAnimationFrame(function () {
-    requestAnimationFrame(function () {
-      sweepOn = true;
-      sweepReveals(window.innerHeight);
-      sweepCounters(window.innerHeight);
-    });
+  function startReveals() {
+    sweepOn = true;
+    sweepReveals(window.innerHeight);
+    sweepCounters(window.innerHeight);
+  }
+
+  // Regelfall: zwei Frames warten, damit der Startzustand einmal gerendert
+  // wurde – sonst springt der sichtbare Bereich ohne Uebergang auf den
+  // Endzustand.
+  requestAnimationFrame(function () { requestAnimationFrame(startReveals); });
+
+  // In einem Hintergrund-Tab laeuft requestAnimationFrame nicht. Der Timer
+  // feuert auch dort und stellt sicher, dass die Abtastung aktiv wird; beim
+  // Wechsel in den Vordergrund wird zusaetzlich nachgefasst.
+  setTimeout(startReveals, 250);
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden) { startReveals(); onScroll(); }
   });
 
   /* ═══════════════════════════════════════════════════════

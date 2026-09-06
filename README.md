@@ -107,6 +107,33 @@ Jedes Logo hat eine eigene **optische Höhe** über `style="--h:NNpx"` am
 unterschiedlich groß. Kommt ein Logo dazu, Höhe so wählen, dass es neben den
 anderen gleich stark wirkt — nicht einfach dieselbe Zahl übernehmen.
 
+## Galerie
+
+Die Bilder stammen vom Sommer-Event mit der SWK. Fünf Hochformate, zwei
+Querformate – darauf ist das Raster ausgelegt:
+
+| Breakpoint | Raster | Zuschnitt |
+|---|---|---|
+| Desktop | 3 Spalten, Querformate über 2 Spalten | 74–89 % der Bildhöhe sichtbar |
+| Tablet | 2 Spalten, letztes Bild über volle Breite | 66–89 % sichtbar |
+| Mobil | 1 Spalte, Zellen im Seitenverhältnis des Fotos | 100 % – gar kein Zuschnitt |
+
+**Keine abgeschnittenen Köpfe:** `object-fit: cover` schneidet bei zu flachen
+Zellen oben und unten weg – genau dort, wo die Gesichter sind. Zwei Maßnahmen
+verhindern das:
+
+1. Die Zellen sind bewusst hoch (3 Rasterreihen), damit wenig Höhe verloren geht.
+2. Jedes `<figure>` trägt `style="--pos:NN%"`. Der Wert verschiebt den sichtbaren
+   Ausschnitt im Bild. Kleiner Wert = mehr vom oberen Bildrand.
+
+Die Gesichter liegen in diesen Aufnahmen bei 27–46 % der Bildhöhe, die sichtbaren
+Fenster bei 5–11 % bis 82–89 %. Wird ein Foto ausgetauscht, `--pos` neu prüfen:
+sitzen die Köpfe tiefer im Bild, muss der Wert steigen.
+
+Auf Tablet läuft das letzte Bild über beide Spalten – fünf Hochformate gehen auf
+zwei Spalten sonst nicht auf. Zusätzlich sorgt `grid-auto-flow: dense` dafür, dass
+neben den Querformaten keine Löcher bleiben.
+
 ## Scroll-Effekte & Animationen
 
 Gesteuert über `assets/js/main.js`, gestylt im Abschnitt „ANIMATIONS-SYSTEM“ in
@@ -150,12 +177,14 @@ Inhalte sofort.
 
 - [ ] `FORM_ENDPOINT` setzen und einen Testeingang prüfen
 - [ ] Cookie-Consent-Banner ergänzen (die Seite erwähnt Google-Remarketing-Pixel)
-- [ ] **Impressum: HRB-Nummer eintragen** – für die All in One GmbH sind Handelsregister
-      und Registernummer Pflichtangaben; der Platzhalter ist auf der Seite rot markiert
 - [ ] Impressum: USt-IdNr. `DE457073094` und Steuernummer `121/5702/6169` gegenprüfen
       (die Steuernummer ist rechtlich nicht erforderlich und kann entfallen)
-- [ ] Prüfen, ob Datenschutzseite und Footer ebenfalls auf die GmbH lauten sollen –
-      dort steht weiterhin „ALL In One Consulting / Ramin Deldarbig“
+- [ ] Prüfen, ob Datenschutzseite und Footer ebenfalls auf die ALL IN ONE Consulting
+      Germany GmbH lauten sollen – dort steht weiterhin „ALL In One Consulting /
+      Ramin Deldarbig“
+- [ ] Nicht mehr eingebunden, aber noch im Ordner: `event-2.jpg`, `event-3.jpg`
+      (alte Galeriebilder) und `logo.png` (altes Rasterlogo) – löschen, falls nicht
+      mehr gebraucht
 - [ ] Impressum und Datenschutzrichtlinie anwaltlich prüfen lassen
 - [ ] `og:image` und `canonical` prüfen, falls die Domain abweicht
 - [ ] Tracking-Codes (Google Ads / Meta Pixel) einbauen, falls gewünscht

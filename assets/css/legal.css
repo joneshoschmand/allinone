@@ -26,11 +26,3 @@
 
 .ftr__bottom a{ color:var(--grey-soft); }
 .ftr__bottom a:hover{ color:var(--lime); }
-
-/* Unausgefüllte Pflichtangabe – bewusst auffällig, damit sie vor dem
-   Livegang nicht übersehen wird. */
-.legal mark.todo{
-  background:rgba(255,90,77,.15); color:#ff8a80;
-  border:1px dashed rgba(255,90,77,.6); border-radius:var(--r-sm);
-  padding:1px 8px; font-weight:700; font-size:.92em;
-}
