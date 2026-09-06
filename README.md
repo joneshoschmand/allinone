@@ -33,18 +33,20 @@ Der Aufbau folgt der Logik „Aufmerksamkeit → Vertrauen → Beweis → Handlu
 
 1. **Topbar** – 98 %-Bewertung, Telefon, E-Mail
 2. **Hero** – Claim, Nutzenversprechen, zwei CTAs, Trust-Chips, Social Proof
-3. **Partnerlogos** – Vattenfall, GASAG, SWK, ARAG, Ludwig Marketing, Caruso, Tokgöz
-4. **Zahlen** – 5+ / 70 / 30 / 145+ mit Zähl-Animation
-5. **Über uns** – Positionierung + Bürobild
-6. **Vorteile** – 6 Karten (deutschlandweit, Festanstellung, Ausbildung, …)
-7. **Gründer** – Ramin Deldarbig
-8. **Einblicke** – Bildergalerie aus Events und Alltag
-9. **Stimmen** – 6 Mitarbeiterzitate als Endlos-Slider
-10. **Bewerbung** – Hauptconversion, Formular mit Validierung
-11. **Beratungsgespräch** – Zweit-Conversion für Kunden
-12. **FAQ** – Einwandbehandlung
-13. **Abschluss-CTA + Footer**
-14. **Sticky-CTA-Leiste** auf Mobilgeräten
+3. **Tagline-Band** – „Eine Entscheidung. Unbegrenzte Möglichkeiten.“ als Endlosband
+4. **Partnerlogos** – Vattenfall, GASAG, SWK, ARAG, Ludwig Marketing, Caruso, Tokgöz
+5. **Zahlen** – 5+ / 70 / 30 / 145+ mit Zähl-Animation
+6. **Über uns** – Positionierung + Bürobild
+7. **Vorteile** – 6 Karten (deutschlandweit, Festanstellung, Ausbildung, …)
+8. **Gründer** – Ramin Deldarbig
+9. **Einblicke** – Bildergalerie aus Events und Alltag
+10. **Stimmen** – 6 Mitarbeiterzitate als Endlos-Slider
+11. **Bewerbung** – Hauptconversion, Formular mit Validierung
+12. **Beratungsgespräch** – Zweit-Conversion für Kunden
+13. **FAQ** – Einwandbehandlung
+14. **Kernbotschaft** – „Dein Weg zur Spitze.“
+15. **Abschluss-CTA + Footer**
+16. **Sticky-CTA-Leiste** auf Mobilgeräten
 
 ## Bewerbungsformular anbinden
 
@@ -65,40 +67,95 @@ var FALLBACK_MAIL = 'info@allinone-consulting.de';
   per `POST` ein JSON mit den Feldern `Vorname`, `Nachname`, `E-Mail`, `Telefon`,
   `Motivation` und zeigt Erfolgs- bzw. Fehlermeldung direkt auf der Seite an.
 
-## Farben & Schriften
-
-Übernommen von der bestehenden Website:
+## Farben & Schriften (CI)
 
 | Token | Wert | Einsatz |
 |---|---|---|
-| `--green` | `#8BC644` | Primärfarbe, CTAs, Akzente |
-| `--green-soft` | `#BEDA8C` | Verläufe |
-| `--ink` | `#2B2A2B` | Dunkle Flächen, Text |
-| `--ink-800` | `#3D4848` | Fließtext |
-| `--paper` | `#F2F2F1` | Helle Sektionen |
-| `--paper-2` | `#EEF0EF` | Trennflächen |
+| `--lime` | `#8CFF00` | Primärfarbe, CTAs, Akzente, Icons |
+| `--lime-dim` | `#6FD400` | Abgedunkelte Variante |
+| `--black` | `#0B0B0B` | Grundfläche |
+| `--anthrazit` | `#1A1A1A` | Abwechselnde Sektionen, Karten |
+| `--grey-dark` | `#2D2D2D` | Linien, Rahmen, Raster |
+| `--grey` | `#A6A6A6` | Fließtext |
+| `--grey-soft` | `#7C7C7C` | Sekundärtext |
+| `--white` | `#FFFFFF` | Überschriften |
 
-Schriften: **Epilogue** (Headlines) und **Instrument Sans** (Fließtext) – beide wie
-bisher, geladen über Google Fonts.
+Schrift: **Montserrat** (400–900) über Google Fonts. Radien bewusst kantig:
+`--r: 4px` für Flächen, `--r-sm: 2px` für Buttons.
+
+Das Logo ist ein Lockup aus SVG-Signet (Lime-Kontur) und Wortmarke
+„ALL IN **ONE** / CONSULTING GERMANY“ — inline im HTML, damit es mitfärbt und
+scharf bleibt. Signet einzeln: `assets/img/logo-mark.svg`, Favicon:
+`assets/img/favicon.svg`. Das alte Rasterlogo liegt weiterhin unter
+`assets/img/logo.png`, wird aber nicht mehr eingebunden.
 
 ## Partnerlogos
 
-Alle Logos laufen einheitlich in Graustufen (`filter: grayscale(1)` in
-`.logo-card img`) und sitzen in gleich großen weißen Karten, damit die Leiste ruhig
-wirkt. Zwei Logos – Caruso Consulting und Enes Tokgöz – lagen nur mit fest
-eingebranntem dunklem Hintergrund vor und wären als schwarze Kästen erschienen.
-Sie wurden deshalb freigestellt: Hintergrund entfernt, Motiv auf einheitliches
-Grau (`#4a4a4a`) gesetzt, transparenter Rand abgeschnitten.
+Die Leiste läuft auf schwarzem Grund, deshalb sind alle Logos als **helle,
+einfarbige Silhouetten** (`#B8B8B8`) mit Transparenz hinterlegt — Originaldateien
+mit weißem oder dunklem Hintergrund würden als Kästen erscheinen.
 
-Kommt ein neues Logo dazu, das ebenfalls einen eingebrannten Hintergrund hat, am
-besten genauso freistellen – sonst fällt es aus der Reihe.
+* Rasterlogos wurden freigestellt: Hintergrund entfernt, Motiv auf einheitliches
+  Grau gesetzt, transparenter Rand abgeschnitten.
+* Bei **ARAG** ist nicht die Fläche das Logo, sondern die dunkle Zeichnung auf der
+  gelben Scheibe — dort wurde die Deckkraft aus der Dunkelheit abgeleitet, sonst
+  wäre nur eine gefüllte Scheibe übrig geblieben.
+* Die beiden SVGs (GASAG, Ludwig Marketing) wurden direkt in der Datei umgefärbt.
+
+Jedes Logo hat eine eigene **optische Höhe** über `style="--h:NNpx"` am
+`.logo-card`. Grund: Wortmarken und runde Marken wirken bei gleicher Boxhöhe
+unterschiedlich groß. Kommt ein Logo dazu, Höhe so wählen, dass es neben den
+anderen gleich stark wirkt — nicht einfach dieselbe Zahl übernehmen.
+
+## Scroll-Effekte & Animationen
+
+Gesteuert über `assets/js/main.js`, gestylt im Abschnitt „ANIMATIONS-SYSTEM“ in
+`style.css`. Alles greift nur, wenn `<html>` die Klasse `js` trägt — ohne
+JavaScript bleibt die Seite vollständig sichtbar.
+
+| Effekt | Auszeichnung im HTML |
+|---|---|
+| Einblenden beim Scrollen | `data-anim="up\|down\|left\|right\|scale\|blur\|clip\|mask"` |
+| Versetzt einblenden | `data-anim-group="up"` am Container — Kinder erben Richtung und Reihenfolge |
+| Überschrift Wort für Wort | `data-split` |
+| Parallax | `data-parallax="0.14"` am Bild (Wert = Stärke) |
+| Zahl hochzählen | `data-count="70" data-suffix="+"` |
+| Endlosband | `data-marquee` am `.marquee` |
+
+Dazu fest verdrahtet: Fortschrittsbalken oben, Header-Zustand beim Scrollen,
+Ausblenden des Hero-Textes, Lime-Schein der dem Mauszeiger über den
+Vorteilskarten folgt, Sticky-CTA-Leiste auf Mobilgeräten.
+
+**Balken im Hero-Hintergrund** (`.hero__bars`, reines CSS): 16 Balken fahren beim
+Laden versetzt nach oben und atmen danach in unterschiedlichem Takt weiter. Die
+Höhen steigen nach rechts an – das greift die Wachstumsaussage der Headline auf.
+Pro Balken steuern vier Werte im `style`-Attribut das Verhalten: `--h` Zielhöhe,
+`--d` Verzögerung beim Aufbau, `--t` Dauer der Wellenbewegung, `--s` wie weit der
+Balken dabei einsinkt. Aufbau und Wellenbewegung liegen bewusst auf zwei
+verschachtelten Elementen, weil sich sonst beide Animationen dieselbe
+`transform`-Eigenschaft überschreiben würden.
+
+**Warum kein IntersectionObserver für die Reveals:** Bei Ankersprüngen und sehr
+schnellem Scrollen kann ein Element in einem einzigen Frame von unterhalb nach
+oberhalb des Viewports springen. Der Observer meldet dann nie eine Überschneidung
+und der Abschnitt bliebe dauerhaft unsichtbar. Stattdessen prüft eine Abtastung in
+der Scroll-Schleife die tatsächliche Position; die Liste schrumpft mit jedem
+eingeblendeten Element. Dieselbe Logik sichert die Zähler ab, damit keine Zahl auf
+`0` stehen bleibt.
+
+`prefers-reduced-motion: reduce` schaltet sämtliche Effekte ab und zeigt alle
+Inhalte sofort.
 
 ## Vor dem Livegang
 
 - [ ] `FORM_ENDPOINT` setzen und einen Testeingang prüfen
 - [ ] Cookie-Consent-Banner ergänzen (die Seite erwähnt Google-Remarketing-Pixel)
+- [ ] **Impressum: HRB-Nummer eintragen** – für die All in One GmbH sind Handelsregister
+      und Registernummer Pflichtangaben; der Platzhalter ist auf der Seite rot markiert
 - [ ] Impressum: USt-IdNr. `DE457073094` und Steuernummer `121/5702/6169` gegenprüfen
       (die Steuernummer ist rechtlich nicht erforderlich und kann entfallen)
+- [ ] Prüfen, ob Datenschutzseite und Footer ebenfalls auf die GmbH lauten sollen –
+      dort steht weiterhin „ALL In One Consulting / Ramin Deldarbig“
 - [ ] Impressum und Datenschutzrichtlinie anwaltlich prüfen lassen
 - [ ] `og:image` und `canonical` prüfen, falls die Domain abweicht
 - [ ] Tracking-Codes (Google Ads / Meta Pixel) einbauen, falls gewünscht

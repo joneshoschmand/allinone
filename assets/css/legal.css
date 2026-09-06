@@ -1,27 +1,36 @@
 /* Zusatz-Styles für Impressum & Datenschutz */
 
-.legal{ padding:clamp(56px,7vw,96px) 0; background:var(--paper); }
+.legal{ padding:clamp(52px,7vw,92px) 0; background:var(--black); }
 .legal__in{ max-width:820px; }
 
-.legal h1{
-  font-size:clamp(2.2rem,5vw,3.2rem); font-weight:800; margin:0 0 36px;
-}
+.legal h1{ font-size:clamp(30px,5vw,48px); margin:0 0 34px; }
 .legal h2{
-  font-size:clamp(1.15rem,2.2vw,1.5rem); font-weight:700;
-  margin:38px 0 12px; padding-top:26px; border-top:1px solid var(--line);
+  font-size:clamp(17px,2.2vw,22px); font-weight:700; color:var(--white);
+  margin:36px 0 12px; padding-top:24px; border-top:1px solid var(--grey-dark);
 }
-.legal h3{ font-size:1.05rem; font-weight:700; margin:24px 0 8px; }
-.legal p, .legal li{ color:var(--ink-600); font-size:16.5px; }
-.legal ul{ padding-left:20px; margin:0 0 1em; }
+.legal h3{ font-size:16px; font-weight:700; margin:22px 0 8px; }
+.legal p, .legal li{ color:var(--grey); font-size:15.5px; }
+.legal ul{ list-style:disc; padding-left:20px; margin:0 0 1em; }
 .legal li{ margin-bottom:6px; }
-.legal a{ color:var(--green-dark); font-weight:600; }
+.legal a{ color:var(--lime); }
+.legal a:hover{ text-decoration:underline; }
 
 .legal__hint{
-  background:var(--green-tint); border:1px solid rgba(139,198,68,.4);
-  border-radius:var(--r); padding:18px 22px; font-size:15px; margin-top:34px;
+  background:var(--anthrazit); border:1px solid var(--grey-dark);
+  border-left:2px solid var(--lime);
+  border-radius:var(--r); padding:18px 22px; font-size:14.5px; margin-top:32px;
 }
-.legal__hint strong{ color:var(--ink); }
+.legal__hint strong{ color:var(--white); }
 
-.legal__back{ margin-top:44px; }
+.legal__back{ margin-top:40px; }
 
-.legal .ftr__bottom a{ color:rgba(255,255,255,.62); text-decoration:none; font-weight:400; }
+.ftr__bottom a{ color:var(--grey-soft); }
+.ftr__bottom a:hover{ color:var(--lime); }
+
+/* Unausgefüllte Pflichtangabe – bewusst auffällig, damit sie vor dem
+   Livegang nicht übersehen wird. */
+.legal mark.todo{
+  background:rgba(255,90,77,.15); color:#ff8a80;
+  border:1px dashed rgba(255,90,77,.6); border-radius:var(--r-sm);
+  padding:1px 8px; font-weight:700; font-size:.92em;
+}

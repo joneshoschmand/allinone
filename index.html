@@ -3,28 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ALL IN ONE CONSULTING GERMANY – Vertrieb mit System. Wachstum mit Herz.</title>
+<title>ALL IN ONE CONSULTING GERMANY – Eine Entscheidung. Unbegrenzte Möglichkeiten.</title>
 <meta name="description" content="ALL IN ONE CONSULTING GERMANY by Ramin Deldarbig: Vertrieb in der Energiebranche mit System. Perfekte Ausbildung in einer Woche, Festanstellung, deutschlandweit. Jetzt in 60 Sekunden bewerben.">
-<meta name="theme-color" content="#2B2A2B">
+<meta name="theme-color" content="#0B0B0B">
 <link rel="canonical" href="https://allinone-consulting.de/">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
 <meta property="og:site_name" content="ALL IN ONE CONSULTING GERMANY">
-<meta property="og:title" content="ALL IN ONE CONSULTING GERMANY – Vertrieb mit System. Wachstum mit Herz.">
+<meta property="og:title" content="ALL IN ONE CONSULTING GERMANY – Eine Entscheidung. Unbegrenzte Möglichkeiten.">
 <meta property="og:description" content="Wenn Du die Arbeit mit Menschen suchst, dann ist die Energiebranche genau das Richtige. Jetzt in 60 Sekunden bewerben.">
 <meta property="og:url" content="https://allinone-consulting.de/">
 <meta property="og:image" content="https://allinone-consulting.de/assets/img/team-group.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" href="assets/img/logo.png">
-<link rel="apple-touch-icon" href="assets/img/logo.png">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/favicon.svg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;600;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
-<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript>
+
+<!-- Ohne JS bleibt alles sichtbar: Animationen greifen nur mit .js -->
+<script>document.documentElement.className += ' js';</script>
 
 <script type="application/ld+json">
 {
@@ -34,7 +36,7 @@
   "alternateName": "ALL In One Consulting",
   "founder": { "@type": "Person", "name": "Ramin Deldarbig", "jobTitle": "CEO & Mitgründer" },
   "url": "https://allinone-consulting.de/",
-  "logo": "https://allinone-consulting.de/assets/img/logo.png",
+  "logo": "https://allinone-consulting.de/assets/img/logo-mark.svg",
   "image": "https://allinone-consulting.de/assets/img/team-group.jpg",
   "telephone": "+49 151 10686258",
   "email": "info@allinone-consulting.de",
@@ -54,6 +56,8 @@
 <body>
 <a class="skip" href="#main">Zum Inhalt springen</a>
 
+<div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+
 <!-- ══ TOP BAR ══ -->
 <div class="topbar">
   <div class="wrap topbar__in">
@@ -72,24 +76,30 @@
 <!-- ══ HEADER ══ -->
 <header class="hdr" id="hdr">
   <div class="wrap hdr__in">
-    <a class="hdr__logo" href="#top" aria-label="ALL IN ONE CONSULTING GERMANY – Startseite">
-      <img src="assets/img/logo.png" alt="ALL IN ONE CONSULTING GERMANY" width="230" height="85">
+    <a class="logo" href="#top" aria-label="ALL IN ONE CONSULTING GERMANY – Startseite">
+      <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <path d="M20 4 L35 34 L27 34 L20 20 L13 34 L5 34 Z" stroke="#8CFF00" stroke-width="2.4" stroke-linejoin="round"/>
+      </svg>
+      <span class="logo__txt">ALL IN <span class="one">ONE</span><small>CONSULTING GERMANY</small></span>
     </a>
 
     <nav class="nav" id="nav" aria-label="Hauptnavigation">
-      <a href="#ueber-uns">Über uns</a>
       <a href="#vorteile">Vorteile</a>
+      <a href="#ueber-uns">Über uns</a>
       <a href="#team">Team</a>
       <a href="#stimmen">Stimmen</a>
-      <a href="#partner">Partner</a>
+      <a href="#faq">FAQ</a>
       <a href="#kontakt">Kontakt</a>
       <a class="btn btn--pri nav__cta" href="#bewerbung">Jetzt bewerben</a>
     </nav>
 
-    <a class="btn btn--pri hdr__cta" href="#bewerbung">Jetzt bewerben</a>
-    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="hdr__actions">
+      <a class="btn btn--line" href="tel:+4915110686258">0151 10686258</a>
+      <a class="btn btn--pri" href="#bewerbung">Jetzt bewerben</a>
+      <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -99,34 +109,54 @@
 <!-- ══ HERO ══ -->
 <section class="hero">
   <div class="hero__glow" aria-hidden="true"></div>
+
+  <!-- Wachsende Balken im Hintergrund (dekorativ) -->
+  <div class="hero__bars" aria-hidden="true">
+    <span style="--h:22%;--d:0.00s;--t:6.5s;--s:0.80"><i></i></span>
+    <span style="--h:30%;--d:0.05s;--t:7.8s;--s:0.74"><i></i></span>
+    <span style="--h:26%;--d:0.10s;--t:5.9s;--s:0.86"><i></i></span>
+    <span style="--h:38%;--d:0.15s;--t:8.4s;--s:0.78"><i></i></span>
+    <span style="--h:34%;--d:0.20s;--t:6.8s;--s:0.82"><i></i></span>
+    <span style="--h:46%;--d:0.25s;--t:7.2s;--s:0.72"><i></i></span>
+    <span style="--h:40%;--d:0.30s;--t:9.0s;--s:0.88"><i></i></span>
+    <span style="--h:54%;--d:0.35s;--t:6.2s;--s:0.76"><i></i></span>
+    <span style="--h:48%;--d:0.40s;--t:8.0s;--s:0.84"><i></i></span>
+    <span style="--h:62%;--d:0.45s;--t:7.5s;--s:0.70"><i></i></span>
+    <span style="--h:56%;--d:0.50s;--t:6.6s;--s:0.86"><i></i></span>
+    <span style="--h:70%;--d:0.55s;--t:8.8s;--s:0.78"><i></i></span>
+    <span style="--h:64%;--d:0.60s;--t:7.0s;--s:0.82"><i></i></span>
+    <span style="--h:78%;--d:0.65s;--t:6.4s;--s:0.74"><i></i></span>
+    <span style="--h:72%;--d:0.70s;--t:8.2s;--s:0.88"><i></i></span>
+    <span style="--h:86%;--d:0.75s;--t:7.6s;--s:0.72"><i></i></span>
+  </div>
   <div class="wrap hero__in">
 
     <div class="hero__copy">
-      <p class="eyebrow intro" style="--d:0ms">ALL IN ONE CONSULTING GERMANY <span>by Ramin Deldarbig</span></p>
+      <p class="eyebrow" data-anim="up">ALL IN ONE CONSULTING GERMANY <span>by Ramin Deldarbig</span></p>
 
-      <h1 class="intro" style="--d:70ms">
+      <h1 data-split>
         Vertrieb <em>mit System.</em><br>
         Wachstum <em>mit Herz.</em><br>
         Erfolg <em>mit Vision.</em>
       </h1>
 
-      <p class="hero__sub intro" style="--d:140ms">
+      <p class="hero__sub" data-anim="up" style="--i:3">
         Wenn Du die Arbeit mit Menschen suchst, dann ist die Energiebranche genau das
         Richtige – denn wir beraten jeden Kunden in deiner Stadt persönlich vor Ort.
       </p>
 
-      <div class="hero__cta intro" style="--d:210ms">
+      <div class="hero__cta" data-anim="up" style="--i:4">
         <a class="btn btn--pri btn--lg" href="#bewerbung">Jetzt in 60 Sekunden bewerben</a>
         <a class="btn btn--ghost btn--lg" href="#gespraech">Kostenloses Gespräch</a>
       </div>
 
-      <ul class="hero__chips intro" style="--d:280ms">
+      <ul class="hero__chips" data-anim="up" style="--i:5">
         <li>Perfekte Ausbildung in einer Woche</li>
         <li>Festanstellung · deutschlandweit</li>
-        <li>Wettbewerbsfähiges Gehalt</li>
+        <li>Überdurchschnittliches Gehalt</li>
       </ul>
 
-      <div class="hero__proof intro" style="--d:350ms">
+      <div class="hero__proof" data-anim="up" style="--i:6">
         <div class="avatars" aria-hidden="true">
           <img src="assets/img/team-thumbsup.jpg" alt="">
           <img src="assets/img/team-talk.jpg" alt="">
@@ -137,7 +167,7 @@
       </div>
     </div>
 
-    <div class="hero__figure intro" style="--d:180ms">
+    <div class="hero__figure" data-anim="scale" style="--i:2">
       <div class="hero__ring" aria-hidden="true"></div>
       <img class="hero__portrait" src="assets/img/ramin-cutout.png"
            alt="Ramin Deldarbig, CEO &amp; Mitgründer von ALL IN ONE CONSULTING GERMANY"
@@ -151,41 +181,55 @@
   </div>
 </section>
 
-<!-- ══ PARTNER MARQUEE ══ -->
+<!-- ══ TAGLINE-STRIP ══ -->
+<div class="strip marquee" data-marquee aria-hidden="true">
+  <div class="marquee__track">
+    <div class="marquee__set">
+      <span>Eine Entscheidung. <b>Unbegrenzte Möglichkeiten.</b></span>
+      <span>Dein Weg <b>zur Spitze.</b></span>
+      <span>Vertrieb mit System. <b>Wachstum mit Herz.</b></span>
+      <span>Eine Entscheidung. <b>Unbegrenzte Möglichkeiten.</b></span>
+      <span>Dein Weg <b>zur Spitze.</b></span>
+      <span>Vertrieb mit System. <b>Wachstum mit Herz.</b></span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PARTNER ══ -->
 <section class="logos" id="partner" aria-labelledby="logos-h">
   <div class="wrap">
-    <p class="logos__label" id="logos-h">
+    <p class="logos__label" id="logos-h" data-anim="up">
       Wir arbeiten mit dem Rückenwind von Milliarden-Euro-Unternehmen
     </p>
   </div>
   <div class="marquee" data-marquee>
     <div class="marquee__track">
       <div class="marquee__set">
-        <span class="logo-card"><img src="assets/img/partner-vattenfall.png" alt="Vattenfall"></span>
-        <span class="logo-card"><img src="assets/img/partner-gasag.svg" alt="GASAG"></span>
-        <span class="logo-card"><img src="assets/img/partner-swk.png" alt="SWK Stadtwerke Krefeld"></span>
-        <span class="logo-card"><img src="assets/img/partner-arag.png" alt="ARAG"></span>
-        <span class="logo-card"><img src="assets/img/partner-ludwig-marketing.svg" alt="Ludwig Marketing"></span>
-        <span class="logo-card"><img src="assets/img/partner-caruso.png" alt="Caruso Consulting"></span>
-        <span class="logo-card"><img src="assets/img/partner-tokgoez.png" alt="Enes Tokgöz Versicherungen"></span>
+        <span class="logo-card" style="--h:26px"><img src="assets/img/partner-vattenfall.png" alt="Vattenfall"></span>
+        <span class="logo-card" style="--h:22px"><img src="assets/img/partner-gasag.svg" alt="GASAG"></span>
+        <span class="logo-card" style="--h:40px"><img src="assets/img/partner-swk.png" alt="SWK Stadtwerke Krefeld"></span>
+        <span class="logo-card" style="--h:46px"><img src="assets/img/partner-arag.png" alt="ARAG"></span>
+        <span class="logo-card" style="--h:26px"><img src="assets/img/partner-ludwig-marketing.svg" alt="Ludwig Marketing"></span>
+        <span class="logo-card" style="--h:36px"><img src="assets/img/partner-caruso.png" alt="Caruso Consulting"></span>
+        <span class="logo-card" style="--h:48px"><img src="assets/img/partner-tokgoez.png" alt="Enes Tokgöz Versicherungen"></span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ STATS ══ -->
+<!-- ══ ZAHLEN ══ -->
 <section class="stats" aria-label="Unsere Zahlen">
   <div class="wrap">
-    <div class="sec-head sec-head--center reveal">
+    <div class="sec-head sec-head--center" data-anim="up">
       <p class="kicker">Unsere Zahlen</p>
-      <h2>Als Arbeitgeber und Partner<br>für <span class="hl">Energieversorger</span></h2>
+      <h2 data-split>Als Arbeitgeber und Partner<br>für <span class="hl">Energieversorger</span></h2>
     </div>
 
-    <div class="stats__grid">
-      <div class="stat reveal"><span class="stat__n" data-count="5" data-suffix="+">0</span><span class="stat__l">Jahre Erfahrung</span></div>
-      <div class="stat reveal"><span class="stat__n" data-count="70">0</span><span class="stat__l">Abgeschlossene Projekte</span></div>
-      <div class="stat reveal"><span class="stat__n" data-count="30">0</span><span class="stat__l">Team&shy;mitglieder</span></div>
-      <div class="stat reveal"><span class="stat__n" data-count="145" data-suffix="+">0</span><span class="stat__l">Kundenbewertungen</span></div>
+    <div class="stats__grid" data-anim-group="scale">
+      <div class="stat"><span class="stat__n" data-count="5" data-suffix="+">0</span><span class="stat__l">Jahre Erfahrung</span></div>
+      <div class="stat"><span class="stat__n" data-count="70">0</span><span class="stat__l">Abgeschlossene Projekte</span></div>
+      <div class="stat"><span class="stat__n" data-count="30">0</span><span class="stat__l">Teammitglieder</span></div>
+      <div class="stat"><span class="stat__n" data-count="145" data-suffix="+">0</span><span class="stat__l">Kundenbewertungen</span></div>
     </div>
   </div>
 </section>
@@ -194,46 +238,48 @@
 <section class="about" id="ueber-uns">
   <div class="wrap about__in">
 
-    <div class="about__media reveal">
-      <img class="about__img" src="assets/img/office.jpg"
-           alt="Büro von ALL IN ONE CONSULTING GERMANY in Mönchengladbach" loading="lazy">
+    <div class="about__media" data-anim="left">
+      <div class="para about__img">
+        <img src="assets/img/office.jpg" data-parallax="0.14"
+             alt="Büro von ALL IN ONE CONSULTING GERMANY in Mönchengladbach" loading="lazy">
+      </div>
       <div class="about__card">
         <span class="about__card-n">98&nbsp;%</span>
         <span class="about__card-t">bewerten uns mit „Sehr gut“</span>
       </div>
     </div>
 
-    <div class="about__copy">
-      <div class="sec-head reveal">
+    <div class="about__copy" data-anim="right">
+      <div class="sec-head">
         <p class="kicker">Über uns</p>
-        <h2>Starker Vertrieb ist <span class="hl">kein Zufall</span></h2>
+        <h2 data-split>Starker Vertrieb ist <span class="hl">kein Zufall</span></h2>
       </div>
 
-      <p class="reveal">
+      <p>
         Bei ALL IN ONE CONSULTING GERMANY by Ramin Deldarbig glauben wir daran, dass starker
         Vertrieb kein Zufall ist – sondern das Ergebnis klarer Strukturen, einer kraftvollen
         Vision und echter Leidenschaft. Unser Ziel ist es, Menschen zu befähigen, Großes zu
         erreichen – im Vertrieb, im Unternehmertum und im Leben.
       </p>
-      <p class="reveal">
+      <p>
         Mit einem innovativen, praxisorientierten Ansatz bauen wir unseren Vertrieb stetig
         weiter auf und setzen dabei auf Persönlichkeitsentwicklung, systematische Ausbildung
         und echte Wertschätzung. Unsere Vertriebsmitarbeiter sind nicht nur Verkäufer – sie
         sind Markenbotschafter, Problemlöser und Visionäre.
       </p>
-      <p class="reveal">
+      <p>
         Wir bieten mehr als nur einen Job: Wir schaffen ein Umfeld, in dem du dich entfalten,
         über dich hinauswachsen und messbar erfolgreich sein kannst. Hier zählt nicht nur, was
         du mitbringst – sondern vor allem, was du daraus machst.
       </p>
 
-      <div class="about__pills reveal">
-        <span>Persönlichkeits&shy;entwicklung</span>
+      <div class="about__pills">
+        <span>Persönlichkeitsentwicklung</span>
         <span>Systematische Ausbildung</span>
         <span>Echte Wertschätzung</span>
       </div>
 
-      <a class="btn btn--pri reveal" href="#bewerbung">Teil des Teams werden</a>
+      <a class="btn btn--pri" href="#bewerbung">Teil des Teams werden</a>
     </div>
 
   </div>
@@ -242,61 +288,61 @@
 <!-- ══ VORTEILE ══ -->
 <section class="perks" id="vorteile">
   <div class="wrap">
-    <div class="sec-head sec-head--center reveal">
+    <div class="sec-head sec-head--center" data-anim="up">
       <p class="kicker">Deine Vorteile</p>
-      <h2>Wo bei anderen die Karriereleiter endet,<br><span class="hl">fängt deine gerade erst an</span></h2>
+      <h2 data-split>Wo bei anderen die Karriereleiter endet,<br><span class="hl">fängt deine gerade erst an</span></h2>
       <p class="sec-head__sub">
         Unsere Mitarbeiter kommen aus vielen unterschiedlichen Bereichen. Sie waren Soldaten,
         Hausfrauen, Studenten, Büroangestellte oder Verkäufer. Was zählt, ist was du daraus machst.
       </p>
     </div>
 
-    <div class="perks__grid">
-      <article class="perk reveal">
+    <div class="perks__grid" data-anim-group="up">
+      <article class="perk">
         <div class="perk__ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18"/></svg>
         </div>
         <h3>Deutschlandweit</h3>
         <p>Wir beraten Kunden persönlich vor Ort – in deiner Stadt und in ganz Deutschland.</p>
       </article>
 
-      <article class="perk reveal">
+      <article class="perk">
         <div class="perk__ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H4a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1Z"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 12h18"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H4a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1Z"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 12h18"/></svg>
         </div>
         <h3>Festanstellung</h3>
         <p>Sicherer Arbeitsvertrag statt loser Vermittlung – mit klarer Perspektive nach oben.</p>
       </article>
 
-      <article class="perk reveal">
+      <article class="perk">
         <div class="perk__ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9 12 4 2 9l10 5 10-5Z"/><path d="M6 11.5V17c0 1.7 2.7 3 6 3s6-1.3 6-3v-5.5"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9 12 4 2 9l10 5 10-5Z"/><path d="M6 11.5V17c0 1.7 2.7 3 6 3s6-1.3 6-3v-5.5"/></svg>
         </div>
         <h3>Perfekte Ausbildung in einer Woche</h3>
         <p>Strukturiertes Onboarding, laufende Coachings und Weiterbildungen ab Tag&nbsp;eins.</p>
       </article>
 
-      <article class="perk reveal">
+      <article class="perk">
         <div class="perk__ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10.5H13l1-8.5Z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10.5H13l1-8.5Z"/></svg>
         </div>
         <h3>Stadtwerke-Projekt</h3>
         <p>Du arbeitest mit dem Rückenwind etablierter Energieversorger und starker Marken.</p>
       </article>
 
-      <article class="perk reveal">
+      <article class="perk">
         <div class="perk__ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 6.5c0-1.9-2.2-3-5-3s-5 1.1-5 3 2.2 2.7 5 3.2 5 1.3 5 3.3-2.2 3-5 3-5-1.1-5-3"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 6.5c0-1.9-2.2-3-5-3s-5 1.1-5 3 2.2 2.7 5 3.2 5 1.3 5 3.3-2.2 3-5 3-5-1.1-5-3"/></svg>
         </div>
-        <h3>Wettbewerbsfähiges Gehalt</h3>
+        <h3>Überdurchschnittliches Gehalt</h3>
         <p>Leistung wird sichtbar vergütet – ohne Deckel nach oben und ohne Wartezeit.</p>
       </article>
 
-      <article class="perk reveal">
+      <article class="perk">
         <div class="perk__ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M6 4h12v5a6 6 0 0 1-12 0V4Z"/><path d="M18 5h2a2 2 0 0 1 0 4h-2M6 5H4a2 2 0 0 0 0 4h2"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M6 4h12v5a6 6 0 0 1-12 0V4Z"/><path d="M18 5h2a2 2 0 0 1 0 4h-2M6 5H4a2 2 0 0 0 0 4h2"/></svg>
         </div>
-        <h3>Incentives &amp; Events</h3>
+        <h3>Reisen &amp; Incentives</h3>
         <p>Mehrere Incentives und tägliche Veranstaltungen, die das Team wirklich zusammenbringen.</p>
       </article>
     </div>
@@ -307,14 +353,14 @@
 <section class="founder">
   <div class="wrap founder__in">
 
-    <div class="founder__copy">
-      <div class="sec-head reveal">
+    <div class="founder__copy" data-anim="right">
+      <div class="sec-head">
         <p class="kicker">Ich bin</p>
-        <h2 class="founder__name">Ramin <span class="hl">Deldarbig</span></h2>
+        <h2 class="founder__name" data-split>Ramin <span class="hl">Deldarbig</span></h2>
         <p class="founder__role">Ihr Partner, wenn es um Energie geht · CEO &amp; Mitgründer</p>
       </div>
 
-      <p class="reveal">
+      <p>
         Ich habe es mir zur Aufgabe gemacht, Menschen und Unternehmen dabei zu unterstützen,
         Energiekosten zu senken und gleichzeitig optimal abgesichert zu sein. Durch meine
         Erfahrung im Vertrieb gelingt es mir, Menschen gezielt aufzubauen und individuell zu
@@ -322,71 +368,73 @@
         ihre persönlichen und beruflichen Ziele zu erreichen.
       </p>
 
-      <ul class="ticks reveal">
+      <ul class="ticks">
         <li>Über 10 Jahre Erfahrung</li>
         <li>Über 500+ zufriedene Kunden</li>
         <li>Kompetente Ausbildung</li>
       </ul>
 
-      <div class="founder__cta reveal">
+      <div class="founder__cta">
         <a class="btn btn--pri" href="#bewerbung">Werde Teil unseres Teams</a>
         <a class="btn btn--line" href="tel:+4915110686258">0151 10686258</a>
       </div>
     </div>
 
-    <div class="founder__media reveal">
-      <img src="assets/img/ramin-portrait.jpg"
-           alt="Ramin Deldarbig, Gründer von ALL IN ONE CONSULTING GERMANY" loading="lazy">
+    <div class="founder__media" data-anim="scale">
+      <div class="para founder__img">
+        <img src="assets/img/ramin-portrait.jpg" data-parallax="0.12"
+             alt="Ramin Deldarbig, Gründer von ALL IN ONE CONSULTING GERMANY" loading="lazy">
+      </div>
       <span class="founder__sig">Ramin Deldarbig</span>
     </div>
 
   </div>
 </section>
 
-<!-- ══ TEAM / EINBLICKE ══ -->
+<!-- ══ TEAM ══ -->
 <section class="team" id="team">
   <div class="wrap">
-    <div class="sec-head sec-head--center reveal">
+    <div class="sec-head sec-head--center" data-anim="up">
       <p class="kicker">Einblicke</p>
-      <h2>Ein Team, das <span class="hl">miteinander wächst</span></h2>
+      <h2 data-split>Ein Team, das <span class="hl">miteinander wächst</span></h2>
       <p class="sec-head__sub">
         Auszeichnungen, Events und der ganz normale Alltag – so sieht ALL IN ONE von innen aus.
       </p>
     </div>
 
-    <div class="gallery">
-      <figure class="gallery__i gallery__i--wide reveal">
+    <div class="gallery" data-anim-group="clip">
+      <figure class="gallery__i gallery__i--wide">
         <img src="assets/img/team-group.jpg" alt="Das Team von ALL IN ONE CONSULTING GERMANY" loading="lazy">
         <figcaption>30 Teammitglieder – eine Mission</figcaption>
       </figure>
-      <figure class="gallery__i reveal">
+      <figure class="gallery__i">
         <img src="assets/img/event-1.jpg" alt="Auszeichnung auf der Bühne bei einem Partner-Event" loading="lazy">
       </figure>
-      <figure class="gallery__i gallery__i--tall reveal">
+      <figure class="gallery__i gallery__i--tall">
         <img src="assets/img/rooftop.jpg" alt="Netzwerken auf der Dachterrasse" loading="lazy">
       </figure>
-      <figure class="gallery__i reveal">
+      <figure class="gallery__i">
         <img src="assets/img/team-thumbsup.jpg" alt="Zwei Vertriebspartner feiern einen Abschluss" loading="lazy">
       </figure>
-      <figure class="gallery__i reveal">
+      <figure class="gallery__i">
         <img src="assets/img/event-3.jpg" alt="Ehrung des Teams bei einer Partnerveranstaltung" loading="lazy">
       </figure>
-      <figure class="gallery__i reveal">
+      <figure class="gallery__i">
         <img src="assets/img/team-talk.jpg" alt="Austausch im Team beim Firmenevent" loading="lazy">
       </figure>
-      <figure class="gallery__i gallery__i--wide2 reveal">
+      <figure class="gallery__i gallery__i--wide2">
         <img src="assets/img/event-2.jpg" alt="Das Team bei der Preisverleihung" loading="lazy">
       </figure>
     </div>
   </div>
 </section>
 
-<!-- ══ TESTIMONIALS ══ -->
+<!-- ══ STIMMEN ══ -->
 <section class="quotes" id="stimmen">
   <div class="wrap">
-    <div class="sec-head sec-head--center reveal">
+    <div class="sec-head sec-head--center" data-anim="up">
       <p class="kicker">Kundenstimmen &amp; Teamstimmen</p>
-      <h2>Was unsere <span class="hl">Vertriebsmitarbeiter</span> sagen</h2>
+      <h2 data-split>Was unsere <span class="hl">Vertriebsmitarbeiter</span> sagen</h2>
     </div>
   </div>
 
@@ -449,22 +497,22 @@
 <section class="apply" id="bewerbung">
   <div class="wrap apply__in">
 
-    <div class="apply__copy">
-      <p class="kicker kicker--light reveal">Karriere</p>
-      <h2 class="reveal">Willst du mit uns ein <span class="hl">Top-Verkäufer</span> werden?</h2>
-      <p class="apply__lead reveal">
+    <div class="apply__copy" data-anim="left">
+      <p class="kicker">Karriere</p>
+      <h2 data-split>Willst du mit uns ein <span class="hl">Top-Verkäufer</span> werden?</h2>
+      <p class="apply__lead">
         Wir sind immer auf der Suche nach neuen Talenten. Wo bei anderen Unternehmen schnell das
         obere Ende der Karriereleiter erreicht ist, bieten wir dir Chancen für deinen Weg an die Spitze.
       </p>
 
-      <ul class="ticks ticks--light reveal">
+      <ul class="ticks">
         <li>Über 50 Vertriebspartner ausgebildet</li>
         <li>Perfekte Ausbildung in einer Woche</li>
-        <li>Wettbewerbsfähiges Gehalt</li>
+        <li>Überdurchschnittliches Gehalt</li>
         <li>Mehrere Incentives &amp; tägliche Veranstaltungen</li>
       </ul>
 
-      <div class="apply__person reveal">
+      <div class="apply__person">
         <img src="assets/img/ramin-portrait.jpg" alt="" aria-hidden="true">
         <div>
           <strong>Ramin Deldarbig</strong>
@@ -473,7 +521,7 @@
       </div>
     </div>
 
-    <div class="apply__formwrap reveal">
+    <div data-anim="right">
       <form class="form" id="applyForm" novalidate>
         <p class="form__head">Jetzt in <strong>60 Sekunden</strong> bewerben</p>
 
@@ -535,9 +583,9 @@
 <!-- ══ GESPRÄCH ══ -->
 <section class="talk" id="gespraech">
   <div class="wrap talk__in">
-    <div class="talk__copy reveal">
+    <div class="talk__copy" data-anim="left">
       <p class="kicker">Für Kunden</p>
-      <h2>Vereinbare ein <span class="hl">Gespräch</span> mit uns</h2>
+      <h2 data-split>Vereinbare ein <span class="hl">Gespräch</span> mit uns</h2>
       <p>
         Du willst deine Energiekosten senken und dabei optimal abgesichert sein? Wir beraten dich
         persönlich – unverbindlich und auf Augenhöhe.
@@ -553,22 +601,25 @@
       </div>
     </div>
 
-    <div class="talk__media reveal">
-      <img src="assets/img/team-talk.jpg" alt="Beratungsgespräch im Team von ALL IN ONE" loading="lazy">
+    <div class="talk__media" data-anim="right">
+      <div class="para talk__img">
+        <img src="assets/img/team-talk.jpg" data-parallax="0.12"
+             alt="Beratungsgespräch im Team von ALL IN ONE" loading="lazy">
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ══ FAQ ══ -->
-<section class="faq">
+<section class="faq" id="faq">
   <div class="wrap">
-    <div class="sec-head sec-head--center reveal">
+    <div class="sec-head sec-head--center" data-anim="up">
       <p class="kicker">Häufige Fragen</p>
-      <h2>Alles, was du <span class="hl">wissen musst</span></h2>
+      <h2 data-split>Alles, was du <span class="hl">wissen musst</span></h2>
     </div>
 
-    <div class="faq__list">
-      <details class="faq__i reveal">
+    <div class="faq__list" data-anim-group="up">
+      <details class="faq__i">
         <summary>Brauche ich Vertriebserfahrung, um bei euch anzufangen?</summary>
         <div class="faq__a"><p>
           Nein. Unsere Mitarbeiter kommen aus vielen unterschiedlichen Bereichen – sie waren
@@ -577,7 +628,7 @@
         </p></div>
       </details>
 
-      <details class="faq__i reveal">
+      <details class="faq__i">
         <summary>Wie läuft die Ausbildung ab?</summary>
         <div class="faq__a"><p>
           Du erhältst eine perfekte Ausbildung in einer Woche: strukturiertes Onboarding, klare
@@ -586,16 +637,16 @@
         </p></div>
       </details>
 
-      <details class="faq__i reveal">
+      <details class="faq__i">
         <summary>Ist das eine Festanstellung?</summary>
         <div class="faq__a"><p>
-          Ja. Wir bieten eine Festanstellung mit wettbewerbsfähigem Gehalt, mehreren Incentives
+          Ja. Wir bieten eine Festanstellung mit überdurchschnittlichem Gehalt, mehreren Incentives
           und täglichen Veranstaltungen. Deine Leistung wird sichtbar vergütet – nach oben gibt
           es keine künstliche Grenze.
         </p></div>
       </details>
 
-      <details class="faq__i reveal">
+      <details class="faq__i">
         <summary>Wo arbeite ich – und in welchem Projekt?</summary>
         <div class="faq__a"><p>
           Wir sind deutschlandweit im Einsatz und beraten jeden Kunden persönlich vor Ort in
@@ -604,7 +655,7 @@
         </p></div>
       </details>
 
-      <details class="faq__i reveal">
+      <details class="faq__i">
         <summary>Wie schnell bekomme ich eine Rückmeldung?</summary>
         <div class="faq__a"><p>
           Die Bewerbung dauert 60 Sekunden. In der Regel melden wir uns innerhalb von 24 Stunden
@@ -612,7 +663,7 @@
         </p></div>
       </details>
 
-      <details class="faq__i reveal">
+      <details class="faq__i">
         <summary>Ich bin Kunde – was kostet ein Beratungsgespräch?</summary>
         <div class="faq__a"><p>
           Nichts. Das 30-minütige Erstgespräch ist kostenlos und unverbindlich. Wir schauen uns
@@ -623,11 +674,28 @@
   </div>
 </section>
 
+<!-- ══ KERNBOTSCHAFT ══ -->
+<div class="kern">
+  <div class="wrap">
+    <div data-anim="up">
+      <h2 data-split>Dein Weg <span class="hl">zur Spitze.</span></h2>
+      <p class="lead">Eine Entscheidung. Unbegrenzte Möglichkeiten.</p>
+    </div>
+    <div class="kern__items" data-anim-group="up">
+      <div class="kern__i"><svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.2"/><path d="M3 20c0-3.5 2.5-6 6-6s6 2.5 6 6M15.5 14.5c2.6.3 4.5 2.3 4.5 5.2" stroke-linecap="round"/></svg><span>Starke Community. Echter Zusammenhalt.</span></div>
+      <div class="kern__i"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M3 17l6-6 4 4 8-8M21 7v6h-6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Wachse über dich hinaus.</span></div>
+      <div class="kern__i"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 2C8 6 6 10 6 13a6 6 0 0012 0c0-3-2-7-6-11z"/><circle cx="12" cy="14" r="2"/></svg><span>Freiheit. Leben nach deinen Regeln.</span></div>
+      <div class="kern__i"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M9 12l2 2 4-4M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z" stroke-linejoin="round"/></svg><span>Heute entscheiden. Morgen verändern.</span></div>
+    </div>
+  </div>
+</div>
+
 <!-- ══ FINAL CTA ══ -->
 <section class="final">
-  <div class="wrap final__in reveal">
-    <h2>Starte jetzt durch.</h2>
-    <p>Der schnellste Weg zu uns: 60 Sekunden Bewerbung – und wir melden uns bei dir.</p>
+  <div class="wrap final__in" data-anim="scale">
+    <p class="kicker" style="justify-content:center">Starte jetzt durch</p>
+    <h2 data-split>Der schnellste Weg zu uns: <span class="hl">60 Sekunden Bewerbung.</span></h2>
+    <p>Wir melden uns in der Regel innerhalb von 24 Stunden persönlich bei dir.</p>
     <div class="final__cta">
       <a class="btn btn--pri btn--lg" href="#bewerbung">Jetzt bewerben</a>
       <a class="btn btn--ghost btn--lg" href="tel:+4915110686258">0151 10686258</a>
@@ -642,8 +710,13 @@
   <div class="wrap ftr__in">
 
     <div class="ftr__brand">
-      <img src="assets/img/logo.png" alt="ALL IN ONE CONSULTING GERMANY" width="220" height="82">
-      <p>Vertrieb mit System. Wachstum mit Herz. Erfolg mit Vision.</p>
+      <a class="logo" href="#top" aria-label="ALL IN ONE CONSULTING GERMANY – nach oben">
+        <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <path d="M20 4 L35 34 L27 34 L20 20 L13 34 L5 34 Z" stroke="#8CFF00" stroke-width="2.4" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo__txt">ALL IN <span class="one">ONE</span><small>CONSULTING GERMANY</small></span>
+      </a>
+      <p>Eine Entscheidung. Unbegrenzte Möglichkeiten. Vertrieb mit System, Wachstum mit Herz.</p>
       <p class="ftr__rating"><span class="stars" aria-hidden="true">★★★★★</span> 98 % bewerten uns mit „Sehr gut“</p>
     </div>
 
