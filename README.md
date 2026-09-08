@@ -8,10 +8,12 @@ Statisches HTML/CSS/JS – kein Build-Schritt, kein Framework, keine Abhängigke
 
 ```
 index.html            Startseite (One-Pager)
+benefits.html         Mitarbeiterleistungen (Firmenwagen, Prämien, Incentives)
 impressum.html        Impressum
 datenschutz.html      Datenschutzrichtlinie
 assets/
   css/style.css       Haupt-Stylesheet (Design-Tokens ganz oben in :root)
+  css/benefits.css    Zusatz-Styles für die Benefits-Seite
   css/legal.css       Zusatz-Styles für die Rechtstexte
   js/main.js          Navigation, Scroll-Reveal, Zähler, Marquee, Formular
   img/                alle Bilder & Partnerlogos
@@ -134,6 +136,32 @@ Auf Tablet läuft das letzte Bild über beide Spalten – fünf Hochformate gehe
 zwei Spalten sonst nicht auf. Zusätzlich sorgt `grid-auto-flow: dense` dafür, dass
 neben den Querformaten keine Löcher bleiben.
 
+## Benefits-Seite
+
+`benefits.html` listet alle Mitarbeiterleistungen auf und ist aus der
+Hauptnavigation, dem Footer und über einen Button unter den Vorteilskarten
+erreichbar. Aufbau: Hero, Schlagwortband, Zahlen, sechs Kategoriekarten,
+Firmenwagen, Prämien, Karrierepfad, Incentive-Bilder, Komplettliste, CTA.
+
+**Eigene Effekte dieser Seite:**
+
+| Effekt | Umsetzung |
+|---|---|
+| Karten kippen zum Mauszeiger | `data-tilt` – die Neigung sitzt auf dem inneren Element, weil das äußere schon die Scroll-Animation transformiert |
+| Auto zeichnet sich selbst | SVG-Konturen, Linienlängen misst JS per `getTotalLength()`, Animation über `stroke-dashoffset` |
+| Prämien-Diagramm wächst | dieselbe Balken-Mechanik wie im Hero der Startseite |
+| Karrierelinie folgt dem Scrollen | `data-draw` setzt `--p` (0…1); die Linie skaliert damit, die Stationen schalten nacheinander auf `.is-on` |
+
+Die Karrierelinie läuft auf Desktop waagerecht und kippt unter 900 px in die
+Senkrechte – gesteuert wird beides über dieselbe Variable, nur die
+Transform-Achse wechselt.
+
+> **Inhaltlich noch offen:** Zu Firmenwagen, Prämienhöhen und Bonusstufen lagen
+> keine Angaben vor. Die Texte sind deshalb bewusst ohne konkrete Zahlen,
+> Fahrzeugklassen oder Schwellenwerte formuliert – auf einer Karriereseite wären
+> das Zusagen an Bewerber. Die betroffenen Stellen sind in `benefits.html` als
+> HTML-Kommentar `BITTE PRÜFEN` markiert.
+
 ## Scroll-Effekte & Animationen
 
 Gesteuert über `assets/js/main.js`, gestylt im Abschnitt „ANIMATIONS-SYSTEM“ in
@@ -175,6 +203,9 @@ Inhalte sofort.
 
 ## Vor dem Livegang
 
+- [ ] **Benefits-Seite:** Konditionen zum Firmenwagen (ab welcher Stufe, Fahrzeugklasse,
+      Privatnutzung, Tankkarte) sowie Prämien- und Bonusdetails abstimmen und ergänzen
+      – Fundstellen im Code mit `BITTE PRÜFEN` markiert
 - [ ] `FORM_ENDPOINT` setzen und einen Testeingang prüfen
 - [ ] Cookie-Consent-Banner ergänzen (die Seite erwähnt Google-Remarketing-Pixel)
 - [ ] Impressum: USt-IdNr. `DE457073094` und Steuernummer `121/5702/6169` gegenprüfen

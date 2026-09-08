@@ -107,6 +107,12 @@
     return { el: el, amt: parseFloat(el.dataset.parallax) || 0.1 };
   });
 
+  // Karrierepfad: Die Linie waechst mit dem Scrollen, die Stationen leuchten
+  // nacheinander auf. --p (0 … 1) steuert beides, die Richtung macht das CSS.
+  var drawEls = $$('[data-draw]').map(function (el) {
+    return { el: el, stations: $$('.path__st', el) };
+  });
+
   var ticking = false;
 
   function frame() {
@@ -143,6 +149,19 @@
       hero.style.transform = 'translate3d(0,' + (p * 60).toFixed(1) + 'px,0)';
       hero.style.opacity = (1 - p * 0.9).toFixed(3);
     }
+
+    // Karrierepfad
+    drawEls.forEach(function (o) {
+      var r = o.el.getBoundingClientRect();
+      var span = r.height + vh * 0.35;
+      var p = span > 0 ? (vh * 0.82 - r.top) / span : 0;
+      p = p < 0 ? 0 : p > 1 ? 1 : p;
+      o.el.style.setProperty('--p', p.toFixed(4));
+      var n = o.stations.length;
+      o.stations.forEach(function (st, i) {
+        st.classList.toggle('is-on', p >= (n > 1 ? i / (n - 1) : 0) * 0.92);
+      });
+    });
 
     // Parallax
     paraEls.forEach(function (o) {
@@ -238,7 +257,33 @@
         card.style.setProperty('--my', (e.clientY - r.top) + 'px');
       });
     });
+
+    // Karten kippen leicht zum Zeiger. Die Neigung sitzt auf dem inneren
+    // Element, weil das aeussere schon die Scroll-Animation transformiert.
+    $$('[data-tilt]').forEach(function (card) {
+      card.addEventListener('pointermove', function (e) {
+        var r = card.getBoundingClientRect();
+        var dx = (e.clientX - r.left) / r.width - 0.5;
+        var dy = (e.clientY - r.top) / r.height - 0.5;
+        card.style.setProperty('--ry', (dx * 9).toFixed(2) + 'deg');
+        card.style.setProperty('--rx', (-dy * 7).toFixed(2) + 'deg');
+        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+      card.addEventListener('pointerleave', function () {
+        card.style.setProperty('--rx', '0deg');
+        card.style.setProperty('--ry', '0deg');
+      });
+    });
   }
+
+  /* Linienlaenge der Auto-Illustration ermitteln, damit sie sich nachzeichnen
+     laesst – feste Werte im CSS wuerden bei Skalierung nicht passen. */
+  $$('.car__draw > *').forEach(function (el) {
+    if (typeof el.getTotalLength === 'function') {
+      el.style.setProperty('--len', Math.ceil(el.getTotalLength()));
+    }
+  });
 
   /* ═══════════════════════════════════════════════════════
      8 · NAVIGATION

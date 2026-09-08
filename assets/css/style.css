@@ -46,7 +46,7 @@ body{
 img,svg{ max-width:100%; display:block; }
 a{ color:inherit; text-decoration:none; }
 button{ font:inherit; }
-ul{ list-style:none; margin:0; padding:0; }
+ul,ol{ list-style:none; margin:0; padding:0; }
 p{ margin:0 0 1em; }
 address{ font-style:normal; }
 
@@ -390,17 +390,27 @@ section{ padding:clamp(64px,8vw,110px) 0; position:relative; }
   transition:opacity .35s var(--ease);
 }
 .perk:hover::after{ opacity:1; }
+/* Sechseck-Rahmen aus zwei gestapelten Flaechen: ein clip-path wuerde einen
+   normalen border an den Schraegen wegschneiden – uebrig blieben nur zwei
+   waagerechte Striche. */
 .perk__ico{
-  position:relative; z-index:2;
+  position:relative; z-index:2; --ico-bg:var(--anthrazit);
   width:46px; height:46px; display:grid; place-items:center; margin-bottom:18px;
-  border:1.5px solid var(--lime); color:var(--lime);
-  clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);
+  color:var(--lime);
   transition:transform .4s var(--ease);
 }
+.perk__ico::before, .perk__ico::after{
+  content:""; position:absolute; pointer-events:none;
+  clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);
+}
+.perk__ico::before{ inset:0; background:var(--lime); }
+.perk__ico::after{ inset:1.5px; background:var(--ico-bg); }
+.perk__ico svg{ position:relative; z-index:2; }
 .perk:hover .perk__ico{ transform:rotate(180deg) scale(1.06); }
 .perk__ico svg{ width:21px; height:21px; }
 .perk h3{ position:relative; z-index:2; font-size:17px; font-weight:700; margin-bottom:8px; }
 .perk p{ position:relative; z-index:2; margin:0; font-size:14px; color:var(--grey); }
+.perks__more{ text-align:center; margin:34px 0 0; }
 
 /* ═══ GRÜNDER ══════════════════════════════════════════ */
 .founder{ background:var(--anthrazit); border-top:1px solid var(--grey-dark); border-bottom:1px solid var(--grey-dark); }
