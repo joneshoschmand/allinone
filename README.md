@@ -143,6 +143,10 @@ Hauptnavigation, dem Footer und über einen Button unter den Vorteilskarten
 erreichbar. Aufbau: Hero, Schlagwortband, Zahlen, sechs Kategoriekarten,
 Firmenwagen, Prämien, Karrierepfad, Incentive-Bilder, Komplettliste, CTA.
 
+Der Karrierepfad hat fünf Stationen: Kundenberater → Trainer → Teamleiter →
+Abteilungsleiter → Standortleiter. Kommt eine Stufe dazu, auch die Spaltenzahl in
+`.path__list` und den Zähler „Stufen bis zur Standortleitung" mitziehen.
+
 **Eigene Effekte dieser Seite:**
 
 | Effekt | Umsetzung |
@@ -152,9 +156,9 @@ Firmenwagen, Prämien, Karrierepfad, Incentive-Bilder, Komplettliste, CTA.
 | Prämien-Diagramm wächst | dieselbe Balken-Mechanik wie im Hero der Startseite |
 | Karrierelinie folgt dem Scrollen | `data-draw` setzt `--p` (0…1); die Linie skaliert damit, die Stationen schalten nacheinander auf `.is-on` |
 
-Die Karrierelinie läuft auf Desktop waagerecht und kippt unter 900 px in die
-Senkrechte – gesteuert wird beides über dieselbe Variable, nur die
-Transform-Achse wechselt.
+Die Karrierelinie läuft auf Desktop waagerecht und kippt unter 1024 px in die
+Senkrechte – fünf Stationen nebeneinander werden darunter zu schmal. Gesteuert
+wird beides über dieselbe Variable, nur die Transform-Achse wechselt.
 
 > **Inhaltlich noch offen:** Zu Firmenwagen, Prämienhöhen und Bonusstufen lagen
 > keine Angaben vor. Die Texte sind deshalb bewusst ohne konkrete Zahlen,

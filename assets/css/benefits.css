@@ -166,7 +166,7 @@
   transform:scaleX(var(--p,0)); transform-origin:0 50%;
   box-shadow:0 0 14px rgba(140,255,0,.8);
 }
-.path__list{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.path__list{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; }
 .path__st{ position:relative; padding-top:18px; }
 .path__dot{
   position:absolute; top:-42px; left:0;
@@ -224,19 +224,22 @@
   .all__grid{ grid-template-columns:repeat(2,1fr); }
 }
 
-@media (max-width:900px){
-  .car__in, .bonus__in{ grid-template-columns:1fr; }
-  .bonus__art{ order:2; }
-  .inc__grid{ grid-template-columns:1fr 1fr; }
-  .inc__i:first-child{ grid-column:span 2; aspect-ratio:3/2; }
-
-  /* Pfad kippt in die Senkrechte */
+/* Der Pfad kippt frueher als der Rest in die Senkrechte – fuenf Stationen
+   nebeneinander werden unter etwa 1024 px zu schmal. */
+@media (max-width:1024px){
   .path__wrap{ padding-top:0; padding-left:32px; }
   .path__track{ top:0; bottom:0; left:6px; right:auto; width:2px; height:auto; }
   .path__fill{ transform:scaleY(var(--p,0)); transform-origin:50% 0; }
   .path__list{ grid-template-columns:1fr; gap:34px; }
   .path__st{ padding-top:0; }
   .path__dot{ top:4px; left:-32px; }
+}
+
+@media (max-width:900px){
+  .car__in, .bonus__in{ grid-template-columns:1fr; }
+  .bonus__art{ order:2; }
+  .inc__grid{ grid-template-columns:1fr 1fr; }
+  .inc__i:first-child{ grid-column:span 2; aspect-ratio:3/2; }
 }
 
 @media (max-width:620px){
