@@ -575,10 +575,11 @@
           <span class="field__count"><span data-count-out>0</span>/200</span>
         </div>
 
-        <!-- Honeypot gegen Spam -->
+        <!-- Honeypot gegen Spam. Der Feldname _gotcha ist Formspree bekannt:
+             ausgefuellte Eintraege werden dort zusaetzlich serverseitig verworfen. -->
         <div class="hp" aria-hidden="true">
           <label for="company">Firma</label>
-          <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
+          <input id="company" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
         </div>
 
         <label class="check">
@@ -621,8 +622,8 @@
 
     <div class="talk__media" data-anim="right">
       <div class="para talk__img">
-        <img src="assets/img/team-talk.jpg" data-parallax="0.12"
-             alt="Beratungsgespräch im Team von ALL IN ONE" loading="lazy">
+        <img src="assets/img/team-gruppe.jpg" data-parallax="0.12"
+             alt="Das Team von ALL IN ONE CONSULTING GERMANY beim Sommer-Event" loading="lazy">
       </div>
     </div>
   </div>

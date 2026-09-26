@@ -6,12 +6,11 @@
   'use strict';
 
   /* ── Konfiguration ─────────────────────────────────────
-     FORM_ENDPOINT: URL eines Formular-Dienstes (z. B. Formspree,
-     Brevo, eigenes PHP-Skript), der die Bewerbung per POST
-     entgegennimmt. Bleibt der Wert leer, öffnet das Formular
+     FORM_ENDPOINT: Formspree-Endpoint, der die Bewerbung per POST
+     entgegennimmt. Wird der Wert geleert, öffnet das Formular
      stattdessen eine vorausgefüllte E-Mail an FALLBACK_MAIL.
   ─────────────────────────────────────────────────────────*/
-  var FORM_ENDPOINT = '';
+  var FORM_ENDPOINT = 'https://formspree.io/f/myezngaz';
   var FALLBACK_MAIL = 'info@allinone-consulting.de';
 
   var $  = function (s, c) { return (c || document).querySelector(s); };
@@ -411,18 +410,22 @@
       status.classList.add(good ? 'is-ok' : 'is-bad');
     }
 
-    var data = {
-      Vorname:    $('#fname', form).value.trim(),
-      Nachname:   $('#lname', form).value.trim(),
-      'E-Mail':   $('#email', form).value.trim(),
-      Telefon:    $('#phone', form).value.trim(),
-      Motivation: $('#motivation', form).value.trim() || '—'
+    var v = {
+      vorname:    $('#fname', form).value.trim(),
+      nachname:   $('#lname', form).value.trim(),
+      email:      $('#email', form).value.trim(),
+      telefon:    $('#phone', form).value.trim(),
+      motivation: $('#motivation', form).value.trim() || '—'
     };
 
     if (!FORM_ENDPOINT) {
-      var body = Object.keys(data).map(function (k) { return k + ': ' + data[k]; }).join('\n');
+      var body = 'Vorname: ' + v.vorname + '\n' +
+                 'Nachname: ' + v.nachname + '\n' +
+                 'E-Mail: ' + v.email + '\n' +
+                 'Telefon: ' + v.telefon + '\n' +
+                 'Motivation: ' + v.motivation;
       window.location.href = 'mailto:' + FALLBACK_MAIL +
-        '?subject=' + encodeURIComponent('Bewerbung: ' + data.Vorname + ' ' + data.Nachname) +
+        '?subject=' + encodeURIComponent('Bewerbung: ' + v.vorname + ' ' + v.nachname) +
         '&body=' + encodeURIComponent(body);
       done('Dein E-Mail-Programm öffnet sich mit der fertigen Bewerbung – bitte nur noch absenden.', true);
       form.reset();
@@ -430,18 +433,46 @@
       return;
     }
 
+    /* Felder mit fuehrendem Unterstrich wertet Formspree selbst aus, der Rest
+       landet als Klartext in der Benachrichtigungsmail. 'email' muss klein
+       geschrieben sein – daraus baut Formspree den Antwort-Empfaenger, sodass
+       sich direkt aus der Mail heraus auf die Bewerbung antworten laesst. */
+    var payload = {
+      email:      v.email,
+      _subject:   'Bewerbung über die Website: ' + v.vorname + ' ' + v.nachname,
+      _language:  'de',
+      Vorname:    v.vorname,
+      Nachname:   v.nachname,
+      Telefon:    v.telefon,
+      Motivation: v.motivation
+    };
+
     fetch(FORM_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify(data)
+      body: JSON.stringify(payload)
     })
       .then(function (r) {
-        if (!r.ok) throw new Error(r.status);
+        // Antwort immer als JSON lesen: Formspree begruendet Ablehnungen dort.
+        return r.json().catch(function () { return {}; })
+          .then(function (json) { return { ok: r.ok, status: r.status, json: json }; });
+      })
+      .then(function (res) {
+        if (!res.ok) {
+          var detail = res.json && res.json.errors
+            ? res.json.errors.map(function (e) { return e.message; }).join(', ')
+            : 'HTTP ' + res.status;
+          throw new Error(detail);
+        }
         form.reset();
         if (countOut) countOut.textContent = '0';
         done('Danke! Deine Bewerbung ist angekommen – wir melden uns innerhalb von 24 Stunden.', true);
       })
-      .catch(function () {
+      .catch(function (err) {
+        // Formspree-Meldungen sind englisch und betreffen meist die Einrichtung
+        // (Formular inaktiv, Kontingent erschoepft). Bewerber sehen deshalb eine
+        // verstaendliche Alternative, die Ursache landet in der Konsole.
+        if (window.console) console.warn('Formularversand fehlgeschlagen:', err && err.message);
         done('Das hat leider nicht geklappt. Ruf uns gerne direkt an: 0151 10686258', false);
       });
   });

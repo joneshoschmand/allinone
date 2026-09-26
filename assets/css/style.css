@@ -547,7 +547,11 @@ section{ padding:clamp(64px,8vw,110px) 0; position:relative; }
 .talk__in{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(32px,5vw,64px); align-items:center; }
 .talk__copy > p{ color:var(--grey); max-width:50ch; }
 .talk__cta{ display:flex; flex-wrap:wrap; gap:13px; margin-top:28px; }
-.talk__img{ aspect-ratio:5/4; }
+/* Gruppenfoto im Format 3:2. Der Parallax-Rahmen macht das Bild 14 % hoeher
+   als seine Box, wodurch cover sonst seitlich beschneiden wuerde – bei einer
+   Reihe von 13 Personen faellt das sofort auf. 3/2 * 1.14 = 1.71 gleicht das
+   aus, sodass die Gruppe vollstaendig im Bild bleibt. */
+.talk__img{ aspect-ratio:171/100; }
 
 /* ═══ FAQ ══════════════════════════════════════════════ */
 .faq{ background:var(--black); }

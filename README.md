@@ -50,24 +50,36 @@ Der Aufbau folgt der Logik „Aufmerksamkeit → Vertrauen → Beweis → Handlu
 15. **Abschluss-CTA + Footer**
 16. **Sticky-CTA-Leiste** auf Mobilgeräten
 
-## Bewerbungsformular anbinden
+## Bewerbungsformular
 
-Das Formular validiert vollständig im Browser (Pflichtfelder, E-Mail, Telefon,
-Einwilligung, Honeypot gegen Spam). Für den Versand gibt es zwei Modi – gesteuert
-über eine Konstante ganz oben in `assets/js/main.js`:
+Das Formular ist an **Formspree** angebunden:
 
 ```js
-var FORM_ENDPOINT = '';                              // leer  → Mailto-Fallback
+var FORM_ENDPOINT = 'https://formspree.io/f/myezngaz';   // assets/js/main.js
 var FALLBACK_MAIL = 'info@allinone-consulting.de';
 ```
 
-* **Leer (Standard):** Es öffnet sich das E-Mail-Programm der Bewerberin bzw. des
-  Bewerbers mit einer fertig ausgefüllten Nachricht. Funktioniert sofort, ohne
-  Server – aber mit einem Absprungrisiko.
-* **Empfohlen für den Livebetrieb:** Eine Endpoint-URL eintragen (z. B. Formspree,
-  Brevo, Make/Zapier-Webhook oder ein eigenes PHP-Skript). Das Formular sendet dann
-  per `POST` ein JSON mit den Feldern `Vorname`, `Nachname`, `E-Mail`, `Telefon`,
-  `Motivation` und zeigt Erfolgs- bzw. Fehlermeldung direkt auf der Seite an.
+Der Versand läuft per AJAX über den vorhandenen eigenen Code – die Bibliothek
+`@formspree/ajax` wird bewusst **nicht** eingebunden. Validierung, Fehlermeldungen
+pro Feld, Honeypot und Statusanzeige sind bereits implementiert; die Bibliothek
+würde das doppeln und eine CDN-Abhängigkeit hinzufügen.
+
+**Formspree-Besonderheiten im Code:**
+
+| Feld | Zweck |
+|---|---|
+| `email` (klein) | Formspree setzt daraus den Antwort-Empfänger – man kann direkt aus der Benachrichtigungsmail auf die Bewerbung antworten |
+| `_subject` | Betreff der Benachrichtigung: „Bewerbung über die Website: Vorname Nachname" |
+| `_language` | `de` – Formspree-eigene Meldungen auf Deutsch |
+| `_gotcha` | Name des Honeypot-Feldes; Formspree verwirft ausgefüllte Einträge zusätzlich serverseitig |
+
+**Fehlerbehandlung:** Formspree begründet Ablehnungen englisch und meist
+einrichtungsbedingt („Form is not active", Kontingent erschöpft). Bewerber sehen
+deshalb immer eine verständliche Alternative mit Telefonnummer, die technische
+Ursache landet in der Browser-Konsole. Eingaben bleiben im Formular stehen.
+
+**Fällt `FORM_ENDPOINT` weg** (Wert leeren), öffnet das Formular wieder eine
+vorausgefüllte E-Mail an `FALLBACK_MAIL`. Der Pfad bleibt als Notnagel erhalten.
 
 ## Farben & Schriften (CI)
 
@@ -210,7 +222,10 @@ Inhalte sofort.
 - [ ] **Benefits-Seite:** Konditionen zum Firmenwagen (ab welcher Stufe, Fahrzeugklasse,
       Privatnutzung, Tankkarte) sowie Prämien- und Bonusdetails abstimmen und ergänzen
       – Fundstellen im Code mit `BITTE PRÜFEN` markiert
-- [ ] `FORM_ENDPOINT` setzen und einen Testeingang prüfen
+- [ ] Eine Testbewerbung abschicken – Formspree verlangt bei der ersten Übermittlung
+      eine Bestätigung per E-Mail, vorher kommt nichts an
+- [ ] Formspree: Vertrag zur Auftragsverarbeitung (Art. 28 DSGVO) abschließen und
+      Kontingent des gebuchten Tarifs prüfen
 - [ ] Cookie-Consent-Banner ergänzen (die Seite erwähnt Google-Remarketing-Pixel)
 - [ ] Impressum: USt-IdNr. `DE457073094` und Steuernummer `121/5702/6169` gegenprüfen
       (die Steuernummer ist rechtlich nicht erforderlich und kann entfallen)
